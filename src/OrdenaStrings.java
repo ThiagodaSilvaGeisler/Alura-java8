@@ -13,6 +13,11 @@ public class OrdenaStrings {
 		palavras.add("editora casa do codigo");
 		palavras.add("caelum");
 
+		palavras.sort(Comparator.comparing(String::length));
+		
+			
+		// ---------------------------------------------------------------------------
+		
 		palavras.sort(Comparator.comparing(s -> s.length()));
 
 		// ---------------------------------------------------------------------------
@@ -26,6 +31,7 @@ public class OrdenaStrings {
 		// ---------------------------------------------------------------------------
 
 		Function<String, Integer> funcao = s -> s.length();
+		
 		Comparator<String> comparador = Comparator.comparing(funcao);
 		palavras.sort(comparador);
 
