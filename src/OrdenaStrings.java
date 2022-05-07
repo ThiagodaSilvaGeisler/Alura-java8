@@ -48,7 +48,15 @@ public class OrdenaStrings {
 		palavras.sort(comparador2);
 		
 		
+		System.out.println(palavras);
 		
+		
+		Consumer<String> impressor = s -> System.out.println(s); 
+		Consumer<String> impressor2 =  System.out::println;
+		
+		palavras.forEach(impressor);
+		
+		palavras.forEach(s -> System.out.println(s));
 		
 		
 		
