@@ -1,6 +1,6 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class OrdenaStrings {
 
@@ -15,6 +15,9 @@ public class OrdenaStrings {
 		
 		
 		System.out.println(palavras);
+		
+		Consumer<String> impressor = s -> System.out.println(s);
+		palavras.forEach(impressor);
 		
 		palavras.forEach(s -> System.out.println(s));
 
