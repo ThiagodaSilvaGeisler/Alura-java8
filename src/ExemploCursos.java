@@ -1,8 +1,7 @@
-import java.net.PortUnreachableException;
-import java.nio.file.DirectoryStream.Filter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.IntStream;
 
 class Curso {
 	private String nome;
@@ -60,8 +59,16 @@ public class ExemploCursos {
 		cursos.stream()
 		.filter(c -> c.getAlunos() >= 100)
 		.map(Curso::getAlunos)
-		.forEach(System.out::println);	
+		.forEach(total -> System.out.println(total));	
 		
+		IntStream stream = cursos.stream()
+		.filter(c -> c.getAlunos() >= 100)
+		.mapToInt(Curso::getAlunos);
+		
+		int sum  = cursos.stream()
+				.filter(c -> c.getAlunos() >= 100)
+				.mapToInt(Curso::getAlunos)
+				.sum();
 		
 		}
 		
