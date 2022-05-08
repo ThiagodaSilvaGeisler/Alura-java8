@@ -115,7 +115,12 @@ public class ExemploCursos {
 						c -> c.getAlunos()))
 				.forEach((nome, alunos) -> System.out.println(nome + " tem " + alunos + "alunos"));
 		
-		
+		 cursos.parallelStream()
+			.filter(c -> c.getAlunos() >= 100)
+			.collect(Collectors.toMap(
+					c -> c.getNome(),
+					c -> c.getAlunos()))
+			.forEach((nome, alunos) -> System.out.println(nome + " tem " + alunos + "alunos"));
 	
 		}
 		
