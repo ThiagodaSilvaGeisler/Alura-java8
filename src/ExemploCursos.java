@@ -1,8 +1,10 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.OptionalDouble;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 class Curso {
@@ -88,6 +90,33 @@ public class ExemploCursos {
 				.mapToInt(Curso::getAlunos)
 				.average();
 		
+		cursos.stream().filter(c -> c.getAlunos() >= 100);
+		
+		//Vai imprimir todos, não fará uso do filtro acima
+		cursos.stream().forEach(c -> System.out.println(c.getNome()));
+		
+		List<Curso> resultado = cursos.stream()
+		.filter(c -> c.getAlunos() >= 100)
+		.collect(Collectors.toList());
+		
+		 Map<String, Integer> map = cursos.stream()
+				.filter(c -> c.getAlunos() >= 100)
+				.collect(Collectors.toMap(
+						c -> c.getNome(),
+						c -> c.getAlunos()
+						
+						));
+		System.out.println(map);
+		
+		 cursos.stream()
+				.filter(c -> c.getAlunos() >= 100)
+				.collect(Collectors.toMap(
+						c -> c.getNome(),
+						c -> c.getAlunos()))
+				.forEach((nome, alunos) -> System.out.println(nome + " tem " + alunos + "alunos"));
+		
+		
+	
 		}
 		
 	}
