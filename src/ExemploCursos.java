@@ -21,9 +21,6 @@ class Curso {
 		
 	}
 
-
-
-
 public class ExemploCursos {
 	public static void main(String[] args) {
 		List<Curso> cursos = new ArrayList<Curso>();
@@ -36,6 +33,8 @@ public class ExemploCursos {
 		
 		cursos.forEach(c -> System.out.println(c.getNome()));
 		
+		System.out.println("------------------------------------------------------------------------------");
 		
+		cursos.stream().filter(c -> c.getAlunos() >= 100).forEach(c -> System.out.println(c.getNome()));
 	}
 }
